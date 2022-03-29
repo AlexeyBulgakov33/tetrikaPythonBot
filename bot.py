@@ -19,9 +19,9 @@ async def process_help_command(message: types.Message):
     await message.reply("Напиши мне что-нибудь, и я отпрпавлю этот текст тебе в ответ!")
 
 
-@dp.message_handler(content_types=['photo'])
+@dp.message_handler()
 async def echo_message(msg: types.Message):
-    await bot.send_message(msg.from_user.id, msg.photo[-1].file_id)
+    await bot.send_message(msg.from_user.id, msg.text)
 
 if __name__ == '__main__':
     executor.start_polling(dp)
